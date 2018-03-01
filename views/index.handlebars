@@ -15,7 +15,8 @@
   <script src="/js/canvas-to-blob.min.js"></script>
   <script src="/js/introHCI.js"></script>
   <script src="/js/camera.js"></script>
-
+  <script src="/js/googlemaps.js"></script>
+  {{> googleMaps}}
   <!-- this is a comment in HTML -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,7 +39,7 @@
     <div id="googleMaps" class="profile">
       <h3>Event Location</h3>
       <div id="map" style="max-height: 400px;"></div>
-    </div> 
+    </div>
 
     <hr>
 
@@ -94,8 +95,8 @@
 
           <div class="row">
             <label for="">Your Photo</label>
-            
-           <!--  <div class="col">
+
+
               <div id="camera" class="profile" style="max-width: 250px;">
                 <video autoplay id="camera-video"></video>
                 <button id="camera-button" class="btn btn-primary">Take Photo</button>
@@ -105,12 +106,12 @@
             <div class="col">
               <canvas id="camera-canvas"></canvas>
             </div>
-            -->
+
           </div>
         </div>
       </div>
       <br>
-      
+
     </div>
   </div>
 </body>
