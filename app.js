@@ -41,6 +41,8 @@ app.get('/', index.view);
 app.get('/rsvp', rsvp.adminView);
 app.get('/addRSVP', rsvp.addRSVP);
 
+app.post('/addRSVP', rsvp.addRSVP);
+
 // Example route
 // app.get('/users', user.list);
 

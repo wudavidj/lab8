@@ -9,9 +9,8 @@ exports.adminView = function(req, res){
   res.render('rsvp', data);
 };
 
-exports.addRSVP = function(req, res) {
-  console.log("into the addRSVP");
-  var rsvpEmail = req.body.rsvpEmail;
+exports.addRSVP = function(req, res){
+var rsvpEmail = req.body.rsvpEmail;
   console.log(rsvpEmail);
   data.rsvp.push(rsvpEmail);
   res.send(rsvpEmail);

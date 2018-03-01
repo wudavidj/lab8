@@ -15,39 +15,43 @@ function initializePage() {
  	initRSVPForm();
 }
 
+
 // init jQuery gestures
 function initGestures() {
-
-	$(function(){
+	//add gestures listener here
+  $(function(){
     $(".judge-img").bind("taphold", tapholdHandler);
+
     function tapholdHandler(event){
+      // get the id of the event source
       var targetIDPrefix = event.target.id;
-      console.log("got prefix: " + targetIDPrefix);
+      console.log("got prefix:" + targetIDPrefix);
+      //show bio
       $("#" + targetIDPrefix + "-bio").show();
+    }
+  });
+  $(function(){
+    $( "div.box" ).bind("taphold", tapholdHandler);
+    function tapholdHandler( event ){
+      $( event.target ).addClass( "taphold" );
     }
   });
 }
 
 // init RSVP form submit listener
 function initRSVPForm() {
-  $("#rsvpForm").submit(function(e) {
+  $('#rsvpForm').submit(function(e) {
+
+    //Prevents default submit + reload (we only want the submit part)
     e.preventDefault();
-    console.log("submitting form...");
-    var rsvpEmail = $("#rsvpEmail").val();
-    console.log({rsvpEmail: rsvpEmail});
-    $.post("/addRSVP", {rsvpEmail: rsvpEmail}, postCallBack());
+    console.log("submitting form...")
+    var rsvpEmail = $('#rsvpEmail').val();
+    // Send the POST request
+    $.post('addRSVP', { rsvpEmail: rsvpEmail }, postCallback);
   });
-  function postCallBack(res) {
+
+  function postCallback(res) {
     alert("RSVP form successfully submitted!");
-    $("#rsvpEmail").val("");
+    $('#rsvpEmail').val(''); // Clear form
   }
 }
-
-/*
-$(function(){
-  $("div.box").bind("taphold", tapholdHandler);
-  function tapholdHandler(event){
-    $(event.target).addClass("taphold");
-  }
-});
-*/
